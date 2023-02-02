@@ -1,4 +1,15 @@
 <?php
+
+ include_once('../vendor/phpmailer/phpmailer/src/PHPMailer.php');
+ include_once('../vendor/phpmailer/phpmailer/src/SMTP.php');
+ include_once('../vendor/phpmailer/phpmailer/src/Exception.php');
+
+ $mail = new PHPMailer\PHPMailer\PHPMailer();
+ $mail->isSMTP();
+ $mail->SMTPAuth = true;
+ $mail->SetFrom('noreply@{domain}.com','User');
+
+
 if(empty($_POST['name']) || empty($_POST['subject']) || empty($_POST['message']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
   http_response_code(500);
   exit();
