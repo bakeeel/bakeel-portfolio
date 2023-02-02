@@ -1,13 +1,13 @@
 <?php
 
- include_once('../vendor/phpmailer/phpmailer/src/PHPMailer.php');
- include_once('../vendor/phpmailer/phpmailer/src/SMTP.php');
- include_once('../vendor/phpmailer/phpmailer/src/Exception.php');
+// Include library PHPMailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
- $mail = new PHPMailer\PHPMailer\PHPMailer();
- $mail->isSMTP();
- $mail->SMTPAuth = true;
- $mail->SetFrom('noreply@{domain}.com','User');
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+require '../PHPMailer/src/SMTP.php';
 
 
 if(empty($_POST['name']) || empty($_POST['subject']) || empty($_POST['message']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
