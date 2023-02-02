@@ -9,6 +9,18 @@ require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';
 require '../PHPMailer/src/SMTP.php';
 
+$mail->SMTPDebug = SMTP::DEBUG_SERVER;                         // Show output (Disable in production)
+    $mail->isSMTP();                                               // Activate SMTP sending
+    $mail->Host  = 'CONFIGURE_SMTP_SERVER';                     // SMTP Server
+    $mail->SMTPAuth  = true;                                       // SMTP Identification
+    $mail->Username  = 'CONFIGURE_USER_SMTP';                  // SMTP User
+    $mail->Password  = 'CONFIGURE_SMTP_PASSWORD';	          // SMTP Password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port  = 587;
+    $mail->setFrom('hola@prueba.com', 'Your name'); 
+
+// Start
+$mail = new PHPMailer(true);
 
 if(empty($_POST['name']) || empty($_POST['subject']) || empty($_POST['message']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
   http_response_code(500);
