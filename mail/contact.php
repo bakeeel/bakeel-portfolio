@@ -14,7 +14,7 @@ require '../PHPMailer/src/SMTP.php';
     $mail->isSMTP();                                               // Activate SMTP sending
     $mail->Host  = 'smtp.gmail.com';                                 // SMTP Server
     $mail->SMTPAuth  = true;                                       // SMTP Identification
-    $mail->Username  = 'bakeelwork@gmail.com';                  // SMTP User
+                  // SMTP User
     $mail->Password  = '';	          // SMTP Password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 80;
