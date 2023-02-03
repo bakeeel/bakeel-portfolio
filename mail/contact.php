@@ -9,18 +9,17 @@ require '../PHPMailer/src/Exception.php';
 require '../PHPMailer/src/PHPMailer.php';
 require '../PHPMailer/src/SMTP.php';
 
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;                         // Show output (Disable in production)
+ $mail = new PHPMailer(true);
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                         // Show output (Disable in production)
     $mail->isSMTP();                                               // Activate SMTP sending
-    $mail->Host  = 'CONFIGURE_SMTP_SERVER';                     // SMTP Server
+    $mail->Host  = 'smtp.gmail.com';                                 // SMTP Server
     $mail->SMTPAuth  = true;                                       // SMTP Identification
-    $mail->Username  = 'CONFIGURE_USER_SMTP';                  // SMTP User
-    $mail->Password  = 'CONFIGURE_SMTP_PASSWORD';	          // SMTP Password
+    $mail->Username  = 'bakeelwork@gmail.com';                  // SMTP User
+    $mail->Password  = 'bakeel712162178E1';	          // SMTP Password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port  = 587;
-    $mail->setFrom('hola@prueba.com', 'Your name'); 
+    $mail->Port = 80;
+    $mail->SMTPSecure = 'tls';
 
-// Start
-$mail = new PHPMailer(true);
 
 
 
